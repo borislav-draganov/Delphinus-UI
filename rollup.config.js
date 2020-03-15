@@ -77,11 +77,11 @@ export default {
         // instead of npm run dev), minify
         production && terser(),
         
-        // production && copy({
-        // 	targets: [
-        // 		{ src: 'public/build/bundle.js.gz', dest: '../data' },
-        // 	]
-        // })
+        production && copy({
+        	targets: [
+        		{ src: 'public/build/bundle.js.gz', dest: '../data' },
+        	]
+        }),
     ],
     watch: {
         clearScreen: false

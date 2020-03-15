@@ -164,14 +164,16 @@
             yellowSensorName,
             blueSensorName,
             greenSensorName,
+            powerSensorName,
         } = await getSensorConfig();
 
-        const [red, yellow, blue, green] = sensors;
+        const [red, yellow, blue, green, power] = sensors;
 
         red.name = redSensorName;
         yellow.name = yellowSensorName;
         blue.name = blueSensorName;
         green.name = greenSensorName;
+        power.name = powerSensorName;
 
         sensors = sensors;
     } ;
@@ -197,7 +199,7 @@
     };
 
     const submitSensorConfig = async () => {
-        const [red, yellow, blue, green] = sensors;
+        const [red, yellow, blue, green, power] = sensors;
 
         const response = await fetch(sensorConfigEndpoint, {
             method: 'POST',
@@ -206,6 +208,7 @@
                     yellowSensorName: yellow.name,
                     blueSensorName: blue.name,
                     greenSensorName: green.name,
+                    powerSensorName: power.name,
                 }),
                 headers: {
                     'Content-Type': 'application/json',

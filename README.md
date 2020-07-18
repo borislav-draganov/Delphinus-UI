@@ -20,7 +20,7 @@ This will bundle the frontend, gzip it and copy it over to the `data` folder so 
 
 ### Dev Build 
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 This will start a web server on [localhost:5000](http://localhost:5000).

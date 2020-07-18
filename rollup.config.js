@@ -30,7 +30,7 @@ export default {
             css: css => {
                 css.write('public/build/bundle.css');
             },
-            preprocess: autoPreprocess({ /* options */ }),
+            preprocess: autoPreprocess(),
         }),
 
         // If you have external dependencies installed from

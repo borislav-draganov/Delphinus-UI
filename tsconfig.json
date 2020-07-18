@@ -1,0 +1,18 @@
+{
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+    //     "module": "commonjs",
+    //     "declaration": true,
+    //     "removeComments": true,
+    //     "emitDecoratorMetadata": true,
+    //     "experimentalDecorators": true,
+    //     "allowSyntheticDefaultImports": true,
+    //     "target": "es2017",
+    //     "sourceMap": true,
+    //     "outDir": "./public/build/ts",
+        "baseUrl": "./"
+    //     "incremental": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/*", "public/*"],
+}

@@ -8,11 +8,13 @@ import replace from 'rollup-plugin-replace';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy'
 import sass from 'node-sass'
+import autoPreprocess from 'svelte-preprocess'
+import typescript from '@rollup/plugin-typescript';
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-    input: 'src/main.js',
+    input: 'src/main.ts',
     output: {
         sourcemap: !production,
         format: 'iife',
@@ -27,7 +29,8 @@ export default {
             // a separate file — better for performance
             css: css => {
                 css.write('public/build/bundle.css');
-            }
+            },
+            preprocess: autoPreprocess({ /* options */ }),
         }),
 
         // If you have external dependencies installed from
@@ -45,6 +48,11 @@ export default {
         }),
 
         commonjs(),
+
+        typescript({
+            typescript: require("typescript"),
+            sourceMap: !production
+        }),
 
         gzipPlugin({
             // additionalFiles: ['public/favicon.ico'],

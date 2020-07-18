@@ -70,11 +70,11 @@
     <button class="mdl-snackbar__action" type="button"></button>
 </div>
 
-<script>
+<script lang="ts">
     const sensorConfigEndpoint = '/config/sensors';
     const temperatureSign = '°C';
 
-    const sensors = [{
+    let sensors = [{
         name: 'Red',
         color: 'red',
         value: 0,

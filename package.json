@@ -6,10 +6,12 @@
   "license": "GPLv3",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "start:dev": "rollup -c -w",
     "start": "sirv public"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^5.0.2",
+    "@tsconfig/svelte": "^1.0.2",
     "material-design-lite": "^1.3.0",
     "node-sass": "^4.14.1",
     "rollup": "2.22.0",
@@ -23,7 +25,10 @@
     "rollup-plugin-svelte": "^5.2.3",
     "rollup-plugin-terser": "^6.1.0",
     "sirv-cli": "^1.0.3",
-    "svelte": "^3.24.0"
+    "svelte": "^3.24.0",
+    "svelte-check": "^0.1.53",
+    "svelte-preprocess": "^4.0.8",
+    "typescript": "^3.9.7"
   },
   "dependencies": {}
 }

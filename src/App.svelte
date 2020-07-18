@@ -128,7 +128,7 @@
 
     const getSensorConfig = async () => {
         if (isDev) {
-            return {"redSensorName":"Red","yellowSensorName":"Yellow","blueSensorName":"Blue","greenSensorName":"Green","powerSensor":"Power"};
+            return {"redSensorName":"Red","yellowSensorName":"Yellow","blueSensorName":"Blue","greenSensorName":"Green","powerSensorName":"Power"};
         }
 
         const response = await fetch(sensorConfigEndpoint, {

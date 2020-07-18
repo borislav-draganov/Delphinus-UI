@@ -7,6 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import replace from 'rollup-plugin-replace';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy'
+import sass from 'node-sass'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -52,17 +53,21 @@ export default {
         postcss({
             // extract: true,
             minimize: true,
-            use: [
-                [
-                    'sass', 
-                    {
-                        includePaths: [
-                            './theme',
-                            './node_modules'
-                        ]
-                    }
-                ]
-            ]
+            preprocessor: (content, id) => new Promise((resolve, reject) => {
+                const result = sass.renderSync({ file: id })
+                resolve({ code: result.css.toString() })
+            }),
+            // use: [
+            //     [
+            //         'node-sass', 
+            //         {
+            //             includePaths: [
+            //                 './theme',
+            //                 './node_modules'
+            //             ]
+            //         }
+            //     ]
+            // ]
         }),
 
         // In dev mode, call `npm run start` once

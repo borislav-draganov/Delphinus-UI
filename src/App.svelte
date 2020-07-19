@@ -104,14 +104,14 @@
     let ssid = '';  
     let password = '';
 
-    const showToast = (message) => {
+    const showToast = (message: string) => {
         const notification = document.querySelector('.mdl-js-snackbar');
         const data = {
             message,
             timeout: 2000,
         };
 
-        notification.MaterialSnackbar.showSnackbar(data);
+        (notification as any).MaterialSnackbar.showSnackbar(data);
     };
 
     const getSensorData = async() => {
@@ -184,7 +184,7 @@
             return;
         }
 
-        const response = await fetch('/config/wifi', {
+        await fetch('/config/wifi', {
             method: 'POST',
             body: JSON.stringify({
                 ssid,
@@ -201,19 +201,19 @@
     const submitSensorConfig = async () => {
         const [red, yellow, blue, green, power] = sensors;
 
-        const response = await fetch(sensorConfigEndpoint, {
+        await fetch(sensorConfigEndpoint, {
             method: 'POST',
-                body: JSON.stringify({
-                    redSensorName: red.name,
-                    yellowSensorName: yellow.name,
-                    blueSensorName: blue.name,
-                    greenSensorName: green.name,
-                    powerSensorName: power.name,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+            body: JSON.stringify({
+                redSensorName: red.name,
+                yellowSensorName: yellow.name,
+                blueSensorName: blue.name,
+                greenSensorName: green.name,
+                powerSensorName: power.name,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
         showToast('Saved');
     };

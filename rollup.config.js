@@ -20,13 +20,13 @@ export default {
         sourcemap: !production,
         format: 'iife',
         name: 'app',
-        file: 'public/build/bundle.js'
+        file: 'dist/bundle.js'
     },
     plugins: [
         svelte({
             dev: !production,
             css: css => {
-                css.write('public/build/bundle.css');
+                css.write('dist/bundle.css');
             },
             preprocess: autoPreprocess(),
         }),
@@ -48,7 +48,7 @@ export default {
         }),
 
         gzipPlugin({
-            // additionalFiles: ['public/favicon.ico'],
+            // additionalFiles: ['dist/favicon.ico'],
         }),
 
         postcss({
@@ -72,18 +72,18 @@ export default {
         }),
 
         !production && serve({
-            contentBase: 'public',
+            contentBase: 'dist',
             port: 5000,
             historyApiFallback: true,
         }),
 
-        !production && livereload('public'),
+        !production && livereload('dist'),
 
         production && terser(),
         
         production && copy({
         	targets: [
-        		{ src: 'public/build/bundle.js.gz', dest: '../data' },
+        		{ src: 'dist/bundle.js.gz', dest: '../data' },
         	]
         }),
     ],

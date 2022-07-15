@@ -24,7 +24,7 @@
     "rollup-plugin-serve": "^2.0.0-beta.0",
     "rollup-plugin-svelte": "^5.2.3",
     "rollup-plugin-terser": "^6.1.0",
-    "svelte": "^3.24.0",
+    "svelte": "^3.49.0",
     "svelte-check": "^0.1.53",
     "svelte-preprocess": "^4.0.8",
     "typescript": "^3.9.7"

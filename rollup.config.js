@@ -1,10 +1,10 @@
 import svelte from 'rollup-plugin-svelte';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy'
 import sass from 'node-sass';
@@ -24,9 +24,8 @@ export default {
     },
     plugins: [
         svelte({
-            dev: !production,
-            css: css => {
-                css.write('dist/bundle.css');
+            compilerOptions: {
+                dev: !production,
             },
             preprocess: autoPreprocess(),
         }),
@@ -37,6 +36,7 @@ export default {
         }),
 
         replace({
+            preventAssignment: true,
             isDev: !production,
         }),
 

@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy'
-import sass from 'node-sass';
+import sass from 'sass';
 import autoPreprocess from 'svelte-preprocess'
 import typescript from '@rollup/plugin-typescript';
 import serve from 'rollup-plugin-serve';
